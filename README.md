@@ -7,6 +7,7 @@ SQL Medical Database Repo
 
 ## Folders
 **Models** : Holds Page structure, links, and CS styling.
+
 **Pages** : Holds cshtml and the respective cs files for adding/editing patient info.
 
 ### Creator: Sheikh Arian
