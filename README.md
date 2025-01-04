@@ -1,4 +1,8 @@
-# Build-Fellowship-2024
-Repo for Summer 2024 Build Fellowship Project!
+# SQL Medical Database
+SQL Medical Database Repo
+
+## Tools Used
+- SQL Server Management Studio 20
+- SQL Server 2022 Configuration Manager
 
 ### Creator: Sheikh Arian
