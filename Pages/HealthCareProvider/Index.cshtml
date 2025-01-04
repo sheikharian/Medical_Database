@@ -1,0 +1,72 @@
+﻿@page
+@model ProjectWorkshop.Pages.HealthCareProvider.IndexModel
+@{
+    // title that will be displayed on the top of the page
+    ViewData["Title"] = "List of Healthcare Providers";
+}
+
+@if (Model.HospitalName != null){
+    <h2>HealthCare Provider List for @Model.HospitalName</h2>}
+    else{
+    <h2>HealthCare Provider List </h2>
+}
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone</th>
+                <th>NPI</th>
+                <th>Hospital Id</th>
+                <th>Role Id</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var provider in Model.HealthCareProviders)
+            {
+                <tr>
+                    <td>@provider.Id</td>
+                    <td>@provider.FirstName</td>
+                    <td>@provider.LastName</td>
+                    <td>@provider.Adress</td>
+                    <td>@provider.City</td>
+                    <td>@provider.State</td>
+                    <td>@provider.Zip</td>
+                    <td>@provider.Phone</td>
+                    <td>@provider.Npi</td>
+                    <td>@provider.HospitalId</td>
+                    <td>@provider.RoleId</td>
+                    <td>
+                        <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@provider.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <a class="btn btn-primary m-1" asp-page="./Index"
+               asp-route-hospitalId="@Request.Query["hospitalId"]"
+               asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <a class="btn btn-primary m-1" asp-page="./Index"
+               asp-route-hospitalId="@Request.Query["hospitalId"]"
+               asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+        }
+    </div>
+</div>
+<p>
+    <a class="btn btn-primary m-1" asp-page="./Edit">Add HealthCare Provider</a>
+</p>

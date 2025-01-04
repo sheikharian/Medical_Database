@@ -1,0 +1,75 @@
+﻿@page
+@model ProjectWorkshop.Pages.HealthCareProvider.EditModel
+@{
+}
+
+<h2>@(Model.HealthCareProvider.Id == 0 ? "Add HealthCare Provider" : "Edit HealthCare Provider")</h2>
+
+<form method="post">
+    <p>
+        <a class="btn btn-secondary m-1" asp-page="./Index">Back</a>
+    </p>
+
+    <input type="hidden" asp-for="HealthCareProvider.Id" />
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.FirstName"></label>
+        <input asp-for="HealthCareProvider.FirstName" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.LastName"></label>
+        <input asp-for="HealthCareProvider.LastName" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Dob"></label>
+        <input asp-for="HealthCareProvider.Dob" class="form-control" type="date" />
+        <span asp-validation-for="HealthCareProvider.Dob" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Gender"></label>
+        <input asp-for="HealthCareProvider.Gender" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Adress"></label>
+        <input asp-for="HealthCareProvider.Adress" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.Adress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.City"></label>
+        <input asp-for="HealthCareProvider.City" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.State"></label>
+        <input asp-for="HealthCareProvider.State" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.State" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Zip"></label>
+        <input asp-for="HealthCareProvider.Zip" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.Zip" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Phone"></label>
+        <input asp-for="HealthCareProvider.Phone" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.Phone" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.Npi"></label>
+        <input asp-for="HealthCareProvider.Npi" class="form-control" />
+        <span asp-validation-for="HealthCareProvider.Npi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="HealthCareProvider.HospitalId"></label>
+        <select asp-for="HealthCareProvider.HospitalId" class="form-control" asp-items="Model.Hospitals"></select>
+        <span asp-validation-for="HealthCareProvider.HospitalId" class="text-danger"></span>
+    </div>
+    </br>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

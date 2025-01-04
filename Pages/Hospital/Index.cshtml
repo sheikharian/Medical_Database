@@ -1,0 +1,59 @@
+﻿@page
+@model ProjectWorkshop.Pages.Hospital.IndexModel
+@{
+    // title that will be displayed on the top of the page
+    ViewData["Title"] = "List of Hospitals";
+}
+
+<h2>Hospitals List</h2>
+
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th># of Patients</th>
+                <th># of Providers</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var hospital in Model.Hospitals)
+            {
+                <tr>
+                    <td>@hospital.HospitalName</td>
+                    <td>@hospital.State</td>
+                    <td>@hospital.City</td>
+                    <td>@hospital.Address</td>
+                    <td>@hospital.Phone</td>
+                    <td>
+                        <a asp-page="/Patients/Index" asp-route-hospitalId="@hospital.Id">
+                            @hospital.PatientCount
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-page="/HealthCareProvider/Index" asp-route-hospitalId="@hospital.Id">
+                            @hospital.HealthCareProviderCount
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pagination">
+        @if (Model.HasPreviousPage)
+        {
+            <a class="btn btn-primary m-1" asp-page="./Index"
+               asp-route-pageIndex="@(Model.PageIndex - 1)">Previous</a>
+        }
+
+        @if (Model.HasNextPage)
+        {
+            <a class="btn btn-primary m-1" asp-page="./Index"
+               asp-route-pageIndex="@(Model.PageIndex + 1)">Next</a>
+        }
+    </div>
+</div>
