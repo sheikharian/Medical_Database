@@ -1,7 +1,7 @@
 # SQL Medical Database
 SQL Medical Database Repo
 
-_Contains only SQL & Web files, not operable by itself._
+_Contains only SQL & Web files, NOT operable by itself as requires resources from The Build Fellowship._
 
 ## Tools Used
 - SQL Server Management Studio 20
