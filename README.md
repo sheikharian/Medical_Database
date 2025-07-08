@@ -1,4 +1,5 @@
 # SQL Medical Database
+### By: Sheikh Arian
 SQL Medical Database Repo
 
 _Contains only SQL & Web files, NOT operable by itself as requires resources from The Build Fellowship._
